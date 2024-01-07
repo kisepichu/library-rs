@@ -47,8 +47,8 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git branch -D gh-pages || true
-          git push origin --delete gh-pages || true
-          out=$(script -c "oj-verify all" -e /dev/null)
+          out=$(script -c "oj-verify all" -e /dev/null) || true
+          git push -f origin :gh-pages
           mkdir -p ./verify
           echo "$out" > ./verify/log.txt
           echo "$out"
