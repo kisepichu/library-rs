@@ -46,6 +46,7 @@ jobs:
           YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
+          git branch -D gh-pages || true
           git push origin --delete gh-pages || true
           out=$(script -c "oj-verify all" -e /dev/null)
           mkdir -p ./verify
