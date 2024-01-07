@@ -39,10 +39,6 @@ jobs:
           cp ./target/doc ./.verify-helper/docs/static/rustdoc -r
         env:
           RUSTDOCFLAGS: --html-in-header ./etc/docs_header.html
-
-      - name: git fetch
-        run: |
-          git fetch origin refs/heads/gh-pages:refs/remotes/origin/gh-pages
           
       - name: Run tests
         env:
@@ -50,6 +46,7 @@ jobs:
           YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
+          git push origin --delete gh-pages
           mkdir -p ./verify
           oj-verify all > ./verify/log.txt
           git add ./verify/log.txt
