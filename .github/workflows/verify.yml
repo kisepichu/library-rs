@@ -46,7 +46,7 @@ jobs:
           YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          git pull
+          echo "commit hash: $(git show --format='%H' --no-patch)"
           mkdir -p ./verify
           oj-verify all > ./verify/log.txt
           git add ./verify/log.txt
