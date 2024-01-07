@@ -60,10 +60,12 @@ pub fn read_line() -> String {
 
 #[cfg(test)]
 mod tests {
+    use crate::util::io::Scanner;
+
     #[test]
     fn test_scanner() {
         let s = "abc 334\n121";
-        let mut sc = crate::Scanner::new(s);
+        let mut sc = Scanner::new(s);
         assert_eq!(sc.next::<String>(), "abc");
         assert_eq!(sc.next::<i64>(), 334);
         assert_eq!(sc.next::<i64>(), 121);
