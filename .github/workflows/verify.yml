@@ -47,10 +47,9 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git push origin --delete gh-pages
-          out=$("oj-verify --all" | tee /dev/tty)
+          out=$(script -c "oj-verify all" /dev/null)
           mkdir -p ./verify
           echo "$out" > ./verify/log.txt
-          git status
           git add ./verify/log.txt
           git commit -m "Add verify log"
           git push
