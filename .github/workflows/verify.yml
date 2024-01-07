@@ -47,6 +47,7 @@ jobs:
           out=$(script -c "oj-verify run" -e /dev/null) || true
           git switch -c gh-pages
           echo "$out"
+          mkdir -p ./verify
           echo "$out" > ./verify/log.txt
           sed -i -e "s/ghp_[a-zA-Z0-9]\{36\}/***/g" ./verify/log.txt
           cargo doc --no-deps
