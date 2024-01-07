@@ -1,3 +1,5 @@
+// verification-helper: IGNORE
+
 //! # library-rs
 //!
 //! [back](https://tqk.blue/library-rs/)
