@@ -1,6 +1,6 @@
-//! bu
+//! # library-rs
 //!
-//! [link test](https://www.google.com)
+//! [back](https://tqk.blue/library-rs/)
 
 pub mod math;
 pub mod util;

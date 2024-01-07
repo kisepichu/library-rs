@@ -3,7 +3,7 @@
 /// # Examples
 ///
 /// ```
-/// use io::Scanner;
+/// use lib::util::io::Scanner;
 ///
 /// let mut s = Scanner::new("abc 334\n121"); // Scanner::new(read_line());
 /// assert_eq!(s.next::<String>(), "abc");

@@ -1,2 +1,5 @@
-target
+target/*
+!target/doc
+target/doc/*
+!target/doc/.cargo
 Cargo.lock

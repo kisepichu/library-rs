@@ -5,7 +5,7 @@ use std::collections::HashSet;
 /// # Examples
 ///
 /// ```
-/// use divisors::divisors;
+/// use lib::math::divisors::divisors;
 /// assert_eq!(divisors(6), [1, 2, 3, 6].iter().cloned().collect());
 /// ```
 pub fn divisors(n: i64) -> HashSet<i64> {
