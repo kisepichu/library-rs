@@ -48,7 +48,8 @@ jobs:
         run: |
           git push origin --delete gh-pages
           mkdir -p ./verify
-          oj-verify all > ./verify/log.txt
+          script -c "oj-verify all" /dev/null | tee verify/log.txt
+          git status
           git add ./verify/log.txt
           git commit -m "Add verify log"
           git push
