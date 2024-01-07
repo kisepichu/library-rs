@@ -4,4 +4,7 @@
 全然追加してないけど C++ 版もある: [library](https://tqk.blue/library/)
 
 - [rustdoc](https://tqk.blue/library-rs/rustdoc/lib/)
+
+
 - [Verify log](https://tqk.blue/library-rs/verify/log.txt)
+- [memo](https://tqk.blue/library-rs/memo)

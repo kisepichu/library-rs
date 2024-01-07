@@ -32,7 +32,10 @@ jobs:
           rustup install nightly
           rustup override set nightly
 
-      - name: cargo-doc
+      - name: cargo test
+        run: cargo test --all-targets
+
+      - name: cargo doc
         run: |
           cargo doc --no-deps
           mkdir -p ./.verify-helper/docs/static
@@ -49,9 +52,9 @@ jobs:
           git branch -D gh-pages || true
           out=$(script -c "oj-verify all" -e /dev/null) || true
           mkdir -p ./verify
-          out=$(echo "$out" | sed -e "s/ghp_[0-9a-zA-Z]\{40\}/***/g")
-          echo "$out" > ./verify/log.txt
           echo "$out"
+          echo "$out" > ./verify/log.txt
+          sed -i -e "s/ghp_[a-zA-Z0-9]\{36\}/***/g" ./verify/log.txt
           git add ./verify/log.txt
           git commit -m "Add verify log"
           git push -f origin gh-pages

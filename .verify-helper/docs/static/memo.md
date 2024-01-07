@@ -23,7 +23,7 @@ source add_verification_problem.sh itp1_3_d https://judge.u-aizu.ac.jp/onlinejud
 いろいろ
 
 ```
-$ cargo test --all
+$ cargo test --all-targets
 $ cargo doc
 $ explorer.exe . # ./target/doc/lib
 $ oj-verify run
