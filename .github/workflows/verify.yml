@@ -51,6 +51,7 @@ jobs:
           sed -i -e "s/ghp_[a-zA-Z0-9]\{36\}/***/g" ./verify-log.txt
           cargo doc --no-deps
           mv ./target/doc/* .
+          cp ./etc/index.html .
           git add .
           git commit -m "update docs"
           git push -f origin gh-pages

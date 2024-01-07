@@ -10,7 +10,7 @@
 //!
 //! Rust 競プロ用ライブラリ。あんま追加してないけど [C++ 版](https://tqk.blue/library/) もある
 //!
-//! - [repo](https://github.com/tqk/library-rs)
+//! - [repo](https://github.com/tqkoh/library-rs)
 //! - [verify log](verify-log.txt) いつか見た目整えてこのページとかに乗るようにする
 //!
 
