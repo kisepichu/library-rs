@@ -38,7 +38,7 @@ jobs:
           mkdir -p ./.verify-helper/docs/static
           cp ./target/doc ./.verify-helper/docs/static/rustdoc -r
         env:
-          RUSTDOCFLAGS: --html-in-header ./etc/docs_header.html
+          RUSTDOCFLAGS: --html-in-header ./etc/docs_header.html --extend-css ./etc/docs.css --default-theme light
           
       - name: Run tests
         env:
@@ -48,7 +48,7 @@ jobs:
         run: |
           git branch -D gh-pages || true
           out=$(script -c "oj-verify all" -e /dev/null) || true
-          git push -f origin :gh-pages
+          git push -f origin gh-pages
           mkdir -p ./verify
           echo "$out" > ./verify/log.txt
           echo "$out"
