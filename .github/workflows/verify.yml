@@ -51,6 +51,7 @@ jobs:
           out=$(script -c "oj-verify all" -e /dev/null)
           mkdir -p ./verify
           echo "$out" > ./verify/log.txt
+          echo "$out"
           git add ./verify/log.txt
           git commit -m "Add verify log"
-          git push
+          git push --set-upstream origin gh-pages
