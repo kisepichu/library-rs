@@ -40,13 +40,16 @@ jobs:
         env:
           RUSTDOCFLAGS: --html-in-header ./etc/docs_header.html
 
+      - name: git fetch
+        run: |
+          git fetch origin refs/heads/gh-pages:refs/remotes/origin/gh-pages
+          
       - name: Run tests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          echo "commit hash: $(git show --format='%H' --no-patch)"
           mkdir -p ./verify
           oj-verify all > ./verify/log.txt
           git add ./verify/log.txt
