@@ -36,7 +36,7 @@ jobs:
         run: |
           cargo doc --no-deps
           mkdir -p ./.verify-helper/docs/static
-          cp ./target/doc ./.verify-helper/docs/static/doc -r
+          cp ./target/doc ./.verify-helper/docs/rustdoc -r
         env:
           RUSTDOCFLAGS: --html-in-header ./etc/docs_header.html
 
@@ -47,6 +47,6 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git pull
-          oj-verify all > ./verify/log
+          oj-verify all > ./verify/log.txt
           ./.github/workflows/customize.sh
           git add . && git commit -m "add log" && git push
