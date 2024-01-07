@@ -35,6 +35,7 @@ jobs:
       - name: cargo-doc
         run: |
           cargo doc --no-deps
+          mkdir -p ./.verify-helper/docs/static
           cp ./target/doc ./.verify-helper/docs/static/doc -r
         env:
           RUSTDOCFLAGS: --html-in-header ./etc/docs_header.html
