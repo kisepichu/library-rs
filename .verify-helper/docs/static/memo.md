@@ -29,3 +29,9 @@ $ explorer.exe . # ./target/doc/lib
 $ oj-verify run
 $ git pull --rebase # oj-verify がプッシュしてくるため
 ```
+
+
+### todo
+
+- [ ] verify log の見た目を整える
+- [ ] cargo snippets 使う

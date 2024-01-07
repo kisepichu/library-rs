@@ -35,26 +35,22 @@ jobs:
       - name: cargo test
         run: cargo test --all-targets
 
-      - name: cargo doc
-        run: |
-          cargo doc --no-deps
-          mkdir -p ./.verify-helper/docs/static
-          cp ./target/doc ./.verify-helper/docs/static/rustdoc -r
-        env:
-          RUSTDOCFLAGS: --html-in-header ./etc/docs_header.html --extend-css ./etc/docs.css --default-theme light
           
-      - name: Run tests
+      - name: Run tests and create docs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
           GH_PAT: ${{ secrets.GH_PAT }}
+          RUSTDOCFLAGS: --html-in-header ./etc/docs_header.html --extend-css ./etc/docs.css --default-theme light
         run: |
           git branch -D gh-pages || true
-          out=$(script -c "oj-verify all" -e /dev/null) || true
-          mkdir -p ./verify
+          out=$(script -c "oj-verify run" -e /dev/null) || true
+          git switch -c gh-pages
           echo "$out"
           echo "$out" > ./verify/log.txt
           sed -i -e "s/ghp_[a-zA-Z0-9]\{36\}/***/g" ./verify/log.txt
+          cargo doc --no-deps
+          mv ./target/doc/* .
           git add ./verify/log.txt
-          git commit -m "Add verify log"
+          git commit -m "update docs"
           git push -f origin gh-pages
