@@ -47,7 +47,7 @@ jobs:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git pull
-          touch ./verify/log.txt
+          mkdir -p ./verify
           oj-verify all > ./verify/log.txt
           ./.github/workflows/customize.sh
           git add . && git commit -m "add log" && git push
