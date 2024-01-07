@@ -49,4 +49,6 @@ jobs:
           git pull
           mkdir -p ./verify
           oj-verify all > ./verify/log.txt
-          git add . && git commit -m "add log" && git push
+          git add ./verify/log.txt
+          git commit -m "Add verify log"
+          git push

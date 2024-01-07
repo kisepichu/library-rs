@@ -4,6 +4,13 @@ version = "0.1.0"
 edition = "2021"
 publish = false
 
+[lib]
+name = "verify"
 
 [dependencies]
 library-rs = { path = "../lib" }
+
+[[bin]]
+name = "aoj_ITP1_3_D"
+path = "src/bin/aoj_ITP1_3_D.rs"
+doc = false
