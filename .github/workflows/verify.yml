@@ -48,10 +48,10 @@ jobs:
         run: |
           git branch -D gh-pages || true
           out=$(script -c "oj-verify all" -e /dev/null) || true
-          git push -f origin gh-pages
           mkdir -p ./verify
+          out=$(echo "$out" | sed -e "s/ghp_[0-9a-zA-Z]\{40\}/***/g")
           echo "$out" > ./verify/log.txt
           echo "$out"
           git add ./verify/log.txt
           git commit -m "Add verify log"
-          git push --set-upstream origin gh-pages
+          git push -f origin gh-pages
