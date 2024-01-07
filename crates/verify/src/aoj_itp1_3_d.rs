@@ -1,3 +1,5 @@
+//! solution for <https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_3_D>
+
 use lib::math::divisors::divisors;
 use lib::util::io::{read_line, Scanner};
 

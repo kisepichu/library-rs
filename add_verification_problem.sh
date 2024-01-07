@@ -28,7 +28,9 @@ lib_rs_body="pub mod $1;\n"
 echo -e "$lib_rs_body" >>crates/verify/src/lib.rs
 
 # crates/verify/src/aoj_itp1_3_d.rs
-echo "pub fn $1() {
+echo "//! solution for <$2>
+
+pub fn $1() {
     // todo: solve $2
 }
 " >>crates/verify/src/$1.rs
