@@ -1,6 +1,6 @@
 # library-rs
 
-[![verify](https://github.com/tqkoh/library-rs/actions/workflows/verify.yml/badge.svg)](https://github.com/tqkoh/library-rs/actions/workflows/verify.yml) [![pages-build-deployment](https://github.com/tqkoh/library-rs/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://tqk.blue/library-rs/lib/)
+[![verify](https://github.com/tqkoh/library-rs/actions/workflows/verify.yml/badge.svg)](https://github.com/tqkoh/library-rs/actions/workflows/verify.yml) [![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://tqk.blue/library-rs/lib/)
   
 競技プログラミング用ライブラリ [doc](https://tqk.blue/library-rs/rustdoc/lib/)  
 
@@ -17,8 +17,10 @@
 ```sh
 $ rustup component add rustfmt
 $ cargo install cargo-snippet --features="binaries"
-$ cargo snippet crates/lib -t vscode
+$ cargo snippet crates/lib -t vscode | clip.exe
 ```
+`| clip` して vscode で `Ctrl + Shift + P` で `Snippets: Open User Snippets` で `rust.json` を開いて貼り付けるか、 `> /mnt/c/Users/tqk/AppData/Roaming/Code/User/snippets/rust.json` するとか
+
 
 ## その他
 
