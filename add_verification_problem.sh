@@ -5,7 +5,8 @@
 # ミスったら undo_add_verification_problem を実行
 
 if [ $# -ne 2 ]; then
-  echo "invalid arguments"
+  echo "Invalid arguments"
+  echo "Usage: source add_verification_problem.sh [problem name] [url]"
   echo "ex. source add_verification_problem.sh aoj_itp1_3_d https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_3_D"
   return
 fi
@@ -77,6 +78,8 @@ with open(path, 'w') as f:
     f.writelines(result)
 "
 }
+
+echo "An undo function defined. Do not exit this shell if you want to run it."
 
 undo_add_verification_problem() {
   echo "remove added contents in crates/verify/Cargo.toml: "

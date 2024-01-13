@@ -11,6 +11,7 @@
 /// assert_eq!(s.next::<i64>(), 121);
 /// ```
 ///
+// not use cargo_snippet because io is used only for verify
 use std;
 use std::str::FromStr;
 
