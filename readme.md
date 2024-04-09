@@ -1,8 +1,8 @@
 # library-rs
 
 [![verify](https://github.com/tqkoh/library-rs/actions/workflows/verify.yml/badge.svg)](https://github.com/tqkoh/library-rs/actions/workflows/verify.yml) [![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://tqk.blue/library-rs/lib/)
-  
-競技プログラミング用ライブラリ [doc](https://tqk.blue/library-rs/rustdoc/lib/)  
+
+競技プログラミング用ライブラリ [doc](https://tqk.blue/library-rs/lib/)
 
 全然追加してないけど C++ 版もある: [tqkoh/library](https://github.com/tqkoh/library)
 
@@ -19,8 +19,8 @@ $ rustup component add rustfmt
 $ cargo install cargo-snippet --features="binaries"
 $ cargo snippet crates/lib -t vscode | clip.exe
 ```
-`| clip` して vscode で `Ctrl + Shift + P` で `Snippets: Open User Snippets` で `rust.json` を開いて貼り付けるか、 `> /mnt/c/Users/tqk/AppData/Roaming/Code/User/snippets/rust.json` するとか
 
+`| clip` して vscode で `Ctrl + Shift + P` で `Snippets: Open User Snippets` で `rust.json` を開いて貼り付けるか、 `> /mnt/c/Users/tqk/AppData/Roaming/Code/User/snippets/rust.json` するとか
 
 ## その他
 
@@ -52,8 +52,6 @@ $ bash add_lib_file.sh math divisors
 
 e.g. [crates/lib/src/math/divisors.rs](crates/lib/src/math/divisors.rs)
 
-
-
 ### verify 問題の追加
 
 ```sh
@@ -64,9 +62,3 @@ $ source add_verification_problem.sh itp1_3_d https://judge.u-aizu.ac.jp/onlinej
 して crates/verify/src/{problem}.rs の fn {problem} 内に解法を書く
 
 - crates/verify/src/bin/{problem}.rs から呼んでる
-
-
-### todo
-
-- [ ] verify log の見た目を整える
-- [ ] add_*.sh をいい感じにしたい(けど Rust で cli にしたりテンプレートエンジンとか使うほどか.?)

@@ -5,8 +5,8 @@
 
 if [ $# -ne 2 ]; then
   echo "Invalid arguments"
-  echo "Usage: source add_verification_problem.sh [problem name] [url]"
-  echo "ex. source add_verification_problem.sh aoj_itp1_3_d https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_3_D"
+  echo "Usage: source add_lib_file.sh [category] [name]"
+  echo "ex. source add_lib_file.sh math gcd"
   return
 fi
 
