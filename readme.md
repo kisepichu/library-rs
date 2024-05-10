@@ -1,8 +1,8 @@
 # library-rs
 
-[![verify](https://github.com/tqkoh/library-rs/actions/workflows/verify.yml/badge.svg)](https://github.com/tqkoh/library-rs/actions/workflows/verify.yml) [![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://tqk.blue/library-rs/lib/)
+[![verify](https://github.com/kisepichu/library-rs/actions/workflows/verify.yml/badge.svg)](https://github.com/tqkoh/library-rs/actions/workflows/verify.yml) [![GitHub Pages](https://img.shields.io/static/v1?label=GitHub+Pages&message=+&color=brightgreen&logo=github)](https://kisepichu.github.io/library-rs/lib/)
 
-競技プログラミング用ライブラリ [doc](https://tqk.blue/library-rs/lib/)
+競技プログラミング用ライブラリ [doc](https://kisepichu.github.io/library-rs/lib/)
 
 全然追加してないけど C++ 版もある: [tqkoh/library](https://github.com/tqkoh/library)
 
