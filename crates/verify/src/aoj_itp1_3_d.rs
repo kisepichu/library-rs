@@ -1,16 +1,18 @@
 //! solution for <https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_3_D>
 
 use lib::math::divisors::divisors;
-use lib::util::io::{read_line, Scanner};
+use lib::out;
+use lib::util::io::OutFormatter;
+use proconio::input;
 
 pub fn aoj_itp1_3_d() {
-    let r = read_line();
-    let mut s = Scanner::new(&r);
-    let a: i64 = s.next();
-    let b: i64 = s.next();
-    let c: i64 = s.next();
+    input! {
+        a: usize,
+        b: usize,
+        c: usize,
+    }
 
     let d = divisors(c);
     let res = d.iter().filter(|&&x| a <= x && x <= b).count();
-    println!("{}", res);
+    out!(res);
 }

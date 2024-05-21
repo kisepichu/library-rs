@@ -33,8 +33,7 @@ $ cargo test --all-targets
 ### ローカルでドキュメントを見る
 
 ```sh
-$ cargo doc --no-deps
-$ explorer.exe .\\target\\doc\\lib\\index.html
+$ cargo doc --no-deps && explorer.exe .\\target\\doc\\lib\\index.html
 ```
 
 ### ローカルで verify (実際の問題を使いテスト)

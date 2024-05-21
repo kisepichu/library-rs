@@ -17,6 +17,7 @@ pub use std::cmp;
 // }
 
 /// Sorts the given vectors by the given function.
+/// Requires `use lib::util::vec::*;`
 ///
 /// # Examples
 ///
@@ -25,7 +26,7 @@ pub use std::cmp;
 /// use lib::util::vec::*;
 /// let mut x = vec![1, 3, 2];
 /// let mut y = vec![3, 2, 1];
-/// srt!(|i, j| x[i]<x[j], y, x);
+/// srt!(|i, j| x[i] < x[j], y, x);
 /// assert_eq!(x, [1, 2, 3]);
 /// assert_eq!(y, [3, 1, 2]);
 /// ```

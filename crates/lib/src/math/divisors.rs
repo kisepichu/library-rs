@@ -12,7 +12,7 @@ use std::collections::HashSet;
 /// ```
 #[snippet("divisors")]
 #[snippet(prefix = "use std::collections::HashSet;")]
-pub fn divisors(n: i64) -> HashSet<i64> {
+pub fn divisors(n: usize) -> HashSet<usize> {
     let mut res = HashSet::new();
     for i in 1.. {
         if i * i > n {

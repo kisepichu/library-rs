@@ -1,8 +1,9 @@
 //! solution for <https://atcoder.jp/contests/abc131/tasks/abc131_d>
 
-use lib::util::other::Yes;
+use lib::util::io::Yes;
 use lib::util::vec::*;
 use lib::*;
+use paste;
 use proconio::input;
 
 pub fn abc131_d() {
@@ -19,7 +20,8 @@ pub fn abc131_d() {
     // }
     // Yes(ok);
 
-    let (mut a, mut b): (Vec<_>, Vec<_>) = ab.into_iter().unzip();
+    // let (mut a, mut b): (Vec<_>, Vec<_>) = ab.into_iter().unzip();
+    unzip!((a, b), ab);
 
     srt!(b.smaller(), a, b);
     let mut ok = true;

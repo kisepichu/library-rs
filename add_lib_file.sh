@@ -19,7 +19,7 @@ if [ -e crates/lib/src/$category/$name.rs ]; then
   echo "File already exists"
 else
   echo -e "use cargo_snippet::snippet;\n" >>crates/lib/src/$category/$name.rs
-  echo -e "pub mod $name;\n" >>crates/lib/src/$category/mod.rs
+  echo -e "pub mod $name;\n" >>crates/lib/src/$category.rs
 fi
 
 code crates/lib/src/$category/$name.rs

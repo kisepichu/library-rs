@@ -9,6 +9,7 @@ name = "verify"
 
 [dependencies]
 library-rs = { path = "../lib" }
+paste = "1.0.15"
 proconio = "0.4.5"
 
 [[bin]]
