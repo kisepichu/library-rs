@@ -1,0 +1,1 @@
+searchState.loadedDescShard("verify", 0, "lib: ライブラリファイル ここ: 自動 verify …\nsolution for …\nsolution for …")
