@@ -72,6 +72,12 @@ impl OutFormatter for usize {
     }
 }
 
+impl OutFormatter for f64 {
+    fn out_format(&self) -> String {
+        format!("{:.10}", self)
+    }
+}
+
 impl OutFormatter for String {
     fn out_format(&self) -> String {
         self.clone()

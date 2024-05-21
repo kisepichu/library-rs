@@ -65,6 +65,60 @@ impl<T: Ord> Comparator for Vec<T> {
     }
 }
 
+pub trait Decrement {
+    fn decrement(&mut self);
+}
+
+impl<T: Copy + std::ops::SubAssign<T> + From<u8>> Decrement for Vec<T> {
+    fn decrement(&mut self) {
+        for i in 0..self.len() {
+            self[i] -= 1.into();
+        }
+    }
+}
+
+impl Decrement for usize {
+    fn decrement(&mut self) {
+        *self -= 1;
+    }
+}
+
+impl Decrement for i64 {
+    fn decrement(&mut self) {
+        *self -= 1;
+    }
+}
+
+impl Decrement for i32 {
+    fn decrement(&mut self) {
+        *self -= 1;
+    }
+}
+
+/// Decrements the given number or vector.
+/// Requires `use lib::util::vec::*;`
+///
+/// # Examples
+///
+/// ```rust
+/// use lib::i0;
+/// use lib::util::vec::*;
+/// let mut l = 1;
+/// let mut r = 3;
+/// let mut a = vec![1, 3, 2];
+/// i0!(l, a);
+/// assert_eq!(l, 0);
+/// assert_eq!(a, [0, 2, 1]);
+/// ```
+#[macro_export]
+macro_rules! i0 {
+    ($($x:expr),*) => {
+        $(
+            $x.decrement();
+        )*
+    };
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -85,5 +139,14 @@ mod tests {
         srt!(x.smaller(), y, x);
         assert_eq!(x, [1, 2, 3]);
         assert_eq!(y, ["c", "aa", "b"]);
+    }
+
+    #[test]
+    fn test_i0() {
+        let mut n = 3;
+        let mut a = vec![1, 3, 2];
+        i0!(n, a);
+        assert_eq!(n, 2);
+        assert_eq!(a, [0, 2, 1]);
     }
 }
