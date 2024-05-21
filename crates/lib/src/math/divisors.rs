@@ -6,7 +6,7 @@ use std::collections::HashSet;
 ///
 /// # Examples
 ///
-/// ```
+/// ```rust
 /// use lib::math::divisors::divisors;
 /// assert_eq!(divisors(6), [1, 2, 3, 6].iter().cloned().collect());
 /// ```

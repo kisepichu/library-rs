@@ -1,10 +1,6 @@
 name: verify
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
+on: push
 
 jobs:
   verify:
@@ -35,7 +31,6 @@ jobs:
       - name: cargo test
         run: cargo test --all-targets
 
-          
       - name: Run tests and create docs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

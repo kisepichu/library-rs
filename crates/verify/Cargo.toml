@@ -9,6 +9,7 @@ name = "verify"
 
 [dependencies]
 library-rs = { path = "../lib" }
+proconio = "0.4.5"
 
 [[bin]]
 name = "aoj_itp1_3_d"
@@ -16,4 +17,10 @@ path = "src/bin/aoj_itp1_3_d.rs"
 doc = false
 
 
+
+
+[[bin]]
+name = "abc131_d"
+path = "src/bin/abc131_d.rs"
+doc = false
 

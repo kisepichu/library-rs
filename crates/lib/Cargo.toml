@@ -13,3 +13,4 @@ name = "lib"
 
 [dependencies]
 cargo-snippet = "0.6"
+rstest = "0.19.0"
