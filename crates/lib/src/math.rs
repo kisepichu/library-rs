@@ -2,4 +2,3 @@
 
 pub mod divisors;
 pub mod gcd;
-
