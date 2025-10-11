@@ -71,8 +71,8 @@ pub trait Decrement {
 
 impl<T: Copy + std::ops::SubAssign<T> + From<u8>> Decrement for Vec<T> {
     fn decrement(&mut self) {
-        for i in 0..self.len() {
-            self[i] -= 1.into();
+        for x in self.iter_mut() {
+            *x -= 1.into();
         }
     }
 }
