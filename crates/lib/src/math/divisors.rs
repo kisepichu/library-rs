@@ -6,13 +6,13 @@ use std::collections::HashSet;
 ///
 /// # Examples
 ///
-/// ```
+/// ```rust
 /// use lib::math::divisors::divisors;
 /// assert_eq!(divisors(6), [1, 2, 3, 6].iter().cloned().collect());
 /// ```
 #[snippet("divisors")]
 #[snippet(prefix = "use std::collections::HashSet;")]
-pub fn divisors(n: i64) -> HashSet<i64> {
+pub fn divisors(n: usize) -> HashSet<usize> {
     let mut res = HashSet::new();
     for i in 1.. {
         if i * i > n {

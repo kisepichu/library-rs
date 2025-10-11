@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - master
+      - develop
   pull_request:
+    branches:
+      - master
+      - develop
 
 jobs:
   verify:
@@ -35,23 +39,29 @@ jobs:
       - name: cargo test
         run: cargo test --all-targets
 
-          
       - name: Run tests and create docs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           YUKICODER_TOKEN: ${{ secrets.YUKICODER_TOKEN }}
+          DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
           GH_PAT: ${{ secrets.GH_PAT }}
           RUSTDOCFLAGS: --html-in-header ./etc/docs_header.html --extend-css ./etc/docs.css --default-theme light
         run: |
-          git branch -D gh-pages || true
           out=$(script -c "oj-verify run" -e /dev/null) || true
-          git switch -c gh-pages
           echo "$out"
-          echo "$out" > ./verify-log.txt
-          sed -i -e "s/ghp_[a-zA-Z0-9]\{36\}/***/g" ./verify-log.txt
-          cargo doc --no-deps
-          mv ./target/doc/* .
-          cp ./etc/index.html .
-          git add .
-          git commit -m "update docs"
-          git push -f origin gh-pages
+          
+          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            git branch -D gh-pages || true
+            git switch -c gh-pages
+            echo "$out" > ./verify-log.txt
+            sed -i -e "s/ghp_[a-zA-Z0-9]\{36\}/***/g" ./verify-log.txt
+            curl -sSL https://github.com/gitleaks/gitleaks/releases/latest/download/gitleaks-linux-amd64.tar.gz | tar -xz
+            ./gitleaks detect --source ./verify-log.txt --no-banner --exit-code 0 --redact --report-path /dev/null
+            cargo doc --no-deps
+            mv ./target/doc/* .
+            cp ./etc/index.html .
+            echo "pushing docs to gh-pages"
+            git add .
+            git commit -m "update docs"
+            git push -f origin gh-pages
+          fi
